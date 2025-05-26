@@ -1,0 +1,78 @@
+--EVENT LABELS DICT--
+
+S1: Dirty Material Input
+S2: Assembled production
+S3: Composition of charges
+S4: Sterilizer Load Released
+S5: Commissioner
+S6: Load L+D released
+S7: Assembly
+S8: Loaded on L+D trolley
+S9: L+D Load Started
+S10: Enter Cleaning
+S11: Enter Storage
+S12: Exit Storage
+
+
+--OBSERVABLE EVENTS--
+
+s1: S1
+s2: S2
+s3: S3
+s4: S4
+s5: S5
+s6: S6
+s7: S7
+s8: S8
+s9: S9
+s10: S10
+s11: S11
+s12: S12
+
+
+--LEARNED DISTRIBUTIONS--
+
+D_0(1.000000)
+D_1(5.000000)
+D_2(8.000000)
+D_3(10.000000)
+D_4(9.000000)
+D_5(6.000000)
+D_6(7.000000)
+D_7(2.000000)
+D_8(3.000000)
+D_9(4.000000)
+D_10(11.000000)
+D_11(12.000000)
+
+
+--FINAL OBSERVATION TABLE--
+
+                    |ε         
+--------------------+----------
+s1                  |(f_0,D_0) 
+s5                  |(f_0,D_1) 
+s1s8                |(f_0,D_2) 
+s1s10               |(f_0,D_3) 
+s1s8s9              |(f_0,D_4) 
+s1s8s9s6            |(f_0,D_5) 
+s1s8s9s6s7          |(f_0,D_6) 
+s1s8s9s6s7s2        |(f_0,D_7) 
+s1s8s9s6s7s2s3      |(f_0,D_8) 
+s1s8s9s6s7s2s3s4    |(f_0,D_9) 
+s1s8s9s6s7s2s3s11   |(f_0,D_10)
+s1s8s9s6s7s2s3s11s12|(f_0,D_11)
+--------------------+----------
+s12                 |(f_0,D_11)
+s1s10s9             |(f_0,D_4) 
+s1s8s9s6s2          |(f_0,D_7) 
+s1s8s9s6s7s2s3s4s5  |(f_0,D_1) 
+s1s8s9s6s7s2s3s4s12 |(f_0,D_11)
+--------------------+----------
+
+
+
+--PERFORMANCE DATA--
+
+SAMPLED TRACES:	23
+RUNNING TIME:	0:00:01.822346

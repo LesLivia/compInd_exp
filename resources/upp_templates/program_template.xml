@@ -1,0 +1,42 @@
+	<template>
+		<name>Program</name>
+		<declaration>clock t;
+
+int curr = 0;
+int next_event;
+
+void update() {
+    if (curr&lt;N_E) next_event = TRACE[curr];
+}
+    </declaration>
+		<location id="id1000" x="0" y="0">
+			<label kind="invariant" x="-10" y="17">t&lt;=1</label>
+		</location>
+		<location id="id1001" x="195" y="0">
+			<name x="185" y="-34">end</name>
+		</location>
+		<location id="id1002" x="-119" y="0">
+			<committed/>
+		</location>
+		<init ref="id1002"/>
+		<transition id="id3">
+			<source ref="id1002"/>
+			<target ref="id1000"/>
+			<label kind="assignment" x="-93" y="0">update()</label>
+		</transition>
+		<transition id="id4">
+			<source ref="id1000"/>
+			<target ref="id1001"/>
+			<label kind="guard" x="18" y="-34">t&gt;=1 &amp;&amp; curr&gt;=N_E</label>
+		</transition>
+		<transition id="id5">
+			<source ref="id1000"/>
+			<target ref="id1000"/>
+			<label kind="guard" x="-51" y="-170">t&gt;=1 &amp;&amp; curr&lt;N_E</label>
+			<label kind="synchronisation" x="-42" y="-153">s[next_event]!</label>
+			<label kind="assignment" x="-42" y="-136">t=0, curr++,
+update()</label>
+			<nail x="-42" y="-102"/>
+			<nail x="42" y="-102"/>
+		</transition>
+	</template>

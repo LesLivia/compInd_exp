@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN'
+        'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+    <declaration>
+        const int N_S = 30;
+        chan s[N_S];
+
+        const int N_E = **N_EVENTS**;
+        int TRACE[N_E] = {**TRACE**};
+    </declaration>
+    **PROGRAM**
+    **MACHINE**
+    <system>
+        aut = DiscoveredSystem();
+        p = Program();
+
+        system p, aut;
+    </system>
+    <queries>
+    </queries>
+</nta>

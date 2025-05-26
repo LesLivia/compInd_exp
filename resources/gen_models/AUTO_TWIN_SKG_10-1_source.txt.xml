@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN'
+        'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+    <declaration>
+        const int N_S = 30;
+        chan s[N_S];
+
+        const int N_E = 4;
+        int TRACE[N_E] = {0,1,2,5};
+    </declaration>
+    	<template>
+
+		<name>Program</name>
+
+		<declaration>clock t;
+
+
+
+int curr = 0;
+
+int next_event;
+
+
+
+void update() {
+
+    if (curr&lt;N_E) next_event = TRACE[curr];
+
+}
+
+    </declaration>
+
+		<location id="id1000" x="0" y="0">
+
+			<label kind="invariant" x="-10" y="17">t&lt;=1</label>
+
+		</location>
+
+		<location id="id1001" x="195" y="0">
+
+			<name x="185" y="-34">end</name>
+
+		</location>
+
+		<location id="id1002" x="-119" y="0">
+
+			<committed/>
+
+		</location>
+
+		<init ref="id1002"/>
+
+		<transition id="id3">
+
+			<source ref="id1002"/>
+
+			<target ref="id1000"/>
+
+			<label kind="assignment" x="-93" y="0">update()</label>
+
+		</transition>
+
+		<transition id="id4">
+
+			<source ref="id1000"/>
+
+			<target ref="id1001"/>
+
+			<label kind="guard" x="18" y="-34">t&gt;=1 &amp;&amp; curr&gt;=N_E</label>
+
+		</transition>
+
+		<transition id="id5">
+
+			<source ref="id1000"/>
+
+			<target ref="id1000"/>
+
+			<label kind="guard" x="-51" y="-170">t&gt;=1 &amp;&amp; curr&lt;N_E</label>
+
+			<label kind="synchronisation" x="-42" y="-153">s[next_event]!</label>
+
+			<label kind="assignment" x="-42" y="-136">t=0, curr++,
+
+update()</label>
+
+			<nail x="-42" y="-102"/>
+
+			<nail x="42" y="-102"/>
+
+		</transition>
+
+	</template>
+    <template>
+    <name>DiscoveredSystem</name>
+    <declaration>
+    </declaration>
+    <location id="id5" x="0" y="0">
+	<name x="0" y="-20">q_5</name></location>
+<location id="id7" x="300" y="0">
+	<name x="300" y="-20">q_7</name></location>
+<location id="id21" x="600" y="0">
+	<name x="600" y="-20">q_21</name></location>
+<location id="id4" x="900" y="0">
+	<name x="900" y="-20">q_4</name></location>
+<location id="id6" x="0" y="300">
+	<name x="0" y="280">q_6</name></location>
+<location id="id16" x="300" y="300">
+	<name x="300" y="280">q_16</name></location>
+<location id="id3" x="600" y="300">
+	<name x="600" y="280">q_3</name></location>
+<location id="id19" x="900" y="300">
+	<name x="900" y="280">q_19</name></location>
+<location id="id8" x="0" y="600">
+	<name x="0" y="580">q_8</name></location>
+<location id="id999" x="300" y="600">
+	<name x="300" y="580">__init__</name></location>
+<location id="id14" x="600" y="600">
+	<name x="600" y="580">q_14</name></location>
+<location id="id2" x="900" y="600">
+	<name x="900" y="580">q_2</name></location>
+<location id="id1" x="0" y="900">
+	<name x="0" y="880">q_1</name></location>
+<location id="id17" x="300" y="900">
+	<name x="300" y="880">q_17</name></location>
+<location id="id22" x="600" y="900">
+	<name x="600" y="880">q_22</name></location>
+<location id="id20" x="900" y="900">
+	<name x="900" y="880">q_20</name></location>
+<location id="id11" x="0" y="1200">
+	<name x="0" y="1180">q_11</name></location>
+<location id="id9" x="300" y="1200">
+	<name x="300" y="1180">q_9</name></location>
+<location id="id13" x="600" y="1200">
+	<name x="600" y="1180">q_13</name></location>
+<location id="id0" x="900" y="1200">
+	<name x="900" y="1180">q_0</name></location>
+<location id="id12" x="0" y="1500">
+	<name x="0" y="1480">q_12</name></location>
+<location id="id15" x="300" y="1500">
+	<name x="300" y="1480">q_15</name></location>
+<location id="id18" x="600" y="1500">
+	<name x="600" y="1480">q_18</name></location>
+<location id="id10" x="900" y="1500">
+	<name x="900" y="1480">q_10</name></location>
+<init ref="id999"/>
+<transition>
+	<source ref="id2"/>
+	<target ref="id21"/>
+	<label kind="synchronisation" x="750.0" y="305.0">s[28]?</label>
+</transition>
+<transition>
+	<source ref="id5"/>
+	<target ref="id10"/>
+	<label kind="synchronisation" x="450.0" y="755.0">s[7]?</label>
+</transition>
+<transition>
+	<source ref="id18"/>
+	<target ref="id19"/>
+	<label kind="synchronisation" x="750.0" y="905.0">s[17]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id8"/>
+	<label kind="synchronisation" x="150.0" y="605.0">s[1]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id4"/>
+	<label kind="synchronisation" x="600.0" y="305.0">s[8]?</label>
+</transition>
+<transition>
+	<source ref="id17"/>
+	<target ref="id18"/>
+	<label kind="synchronisation" x="450.0" y="1205.0">s[14]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id2"/>
+	<label kind="synchronisation" x="600.0" y="605.0">s[25]?</label>
+</transition>
+<transition>
+	<source ref="id11"/>
+	<target ref="id0"/>
+	<label kind="synchronisation" x="450.0" y="1205.0">s[24]?</label>
+</transition>
+<transition>
+	<source ref="id10"/>
+	<target ref="id9"/>
+	<label kind="synchronisation" x="600.0" y="1355.0">s[11]?</label>
+</transition>
+<transition>
+	<source ref="id8"/>
+	<target ref="id14"/>
+	<label kind="synchronisation" x="300.0" y="605.0">s[3]?</label>
+</transition>
+<transition>
+	<source ref="id22"/>
+	<target ref="id16"/>
+	<label kind="synchronisation" x="450.0" y="605.0">s[5]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id3"/>
+	<label kind="synchronisation" x="450.0" y="455.0">s[0]?</label>
+</transition>
+<transition>
+	<source ref="id15"/>
+	<target ref="id17"/>
+	<label kind="synchronisation" x="300.0" y="1205.0">s[13]?</label>
+</transition>
+<transition>
+	<source ref="id7"/>
+	<target ref="id12"/>
+	<label kind="synchronisation" x="150.0" y="755.0">s[29]?</label>
+</transition>
+<transition>
+	<source ref="id20"/>
+	<target ref="id1"/>
+	<label kind="synchronisation" x="450.0" y="905.0">s[19]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id5"/>
+	<label kind="synchronisation" x="150.0" y="305.0">s[6]?</label>
+</transition>
+<transition>
+	<source ref="id2"/>
+	<target ref="id7"/>
+	<label kind="synchronisation" x="600.0" y="305.0">s[26]?</label>
+</transition>
+<transition>
+	<source ref="id6"/>
+	<target ref="id11"/>
+	<label kind="synchronisation" x="0.0" y="755.0">s[23]?</label>
+</transition>
+<transition>
+	<source ref="id14"/>
+	<target ref="id13"/>
+	<label kind="synchronisation" x="600.0" y="905.0">s[2]?</label>
+</transition>
+<transition>
+	<source ref="id10"/>
+	<target ref="id4"/>
+	<label kind="synchronisation" x="900.0" y="755.0">s[8]?</label>
+</transition>
+<transition>
+	<source ref="id15"/>
+	<target ref="id18"/>
+	<label kind="synchronisation" x="450.0" y="1505.0">s[14]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id0"/>
+	<label kind="synchronisation" x="600.0" y="905.0">s[24]?</label>
+</transition>
+<transition>
+	<source ref="id8"/>
+	<target ref="id13"/>
+	<label kind="synchronisation" x="300.0" y="905.0">s[2]?</label>
+</transition>
+<transition>
+	<source ref="id2"/>
+	<target ref="id12"/>
+	<label kind="synchronisation" x="450.0" y="1055.0">s[29]?</label>
+</transition>
+<transition>
+	<source ref="id9"/>
+	<target ref="id20"/>
+	<label kind="synchronisation" x="600.0" y="1055.0">s[18]?</label>
+</transition>
+<transition>
+	<source ref="id12"/>
+	<target ref="id3"/>
+	<label kind="synchronisation" x="300.0" y="905.0">s[0]?</label>
+</transition>
+<transition>
+	<source ref="id21"/>
+	<target ref="id12"/>
+	<label kind="synchronisation" x="300.0" y="755.0">s[29]?</label>
+</transition>
+<transition>
+	<source ref="id999"/>
+	<target ref="id1"/>
+	<label kind="synchronisation" x="150.0" y="755.0">s[19]?</label>
+</transition>
+<transition>
+	<source ref="id1"/>
+	<target ref="id6"/>
+	<label kind="synchronisation" x="0.0" y="605.0">s[20]?</label>
+</transition>
+<transition>
+	<source ref="id16"/>
+	<target ref="id5"/>
+	<label kind="synchronisation" x="150.0" y="155.0">s[6]?</label>
+</transition>
+<transition>
+	<source ref="id7"/>
+	<target ref="id21"/>
+	<label kind="synchronisation" x="450.0" y="5.0">s[28]?</label>
+</transition>
+<transition>
+	<source ref="id13"/>
+	<target ref="id16"/>
+	<label kind="synchronisation" x="450.0" y="755.0">s[5]?</label>
+</transition>
+<transition>
+	<source ref="id3"/>
+	<target ref="id8"/>
+	<label kind="synchronisation" x="300.0" y="455.0">s[1]?</label>
+</transition>
+<transition>
+	<source ref="id4"/>
+	<target ref="id9"/>
+	<label kind="synchronisation" x="600.0" y="605.0">s[11]?</label>
+</transition>
+<transition>
+	<source ref="id9"/>
+	<target ref="id15"/>
+	<label kind="synchronisation" x="300.0" y="1355.0">s[12]?</label>
+</transition>
+<transition>
+	<source ref="id1"/>
+	<target ref="id11"/>
+	<label kind="synchronisation" x="0.0" y="1055.0">s[23]?</label>
+</transition>
+<transition>
+	<source ref="id13"/>
+	<target ref="id22"/>
+	<label kind="synchronisation" x="600.0" y="1055.0">s[4]?</label>
+</transition>
+<transition>
+	<source ref="id0"/>
+	<target ref="id2"/>
+	<label kind="synchronisation" x="900.0" y="905.0">s[25]?</label>
+</transition>
+<transition>
+	<source ref="id19"/>
+	<target ref="id0"/>
+	<label kind="synchronisation" x="900.0" y="755.0">s[24]?</label>
+</transition>
+</template>
+    <system>
+        aut = DiscoveredSystem();
+        p = Program();
+
+        system p, aut;
+    </system>
+    <queries>
+    </queries>
+</nta>
