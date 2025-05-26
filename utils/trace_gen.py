@@ -20,7 +20,7 @@ def get_traces():
     START_T = parse_date(START_T)
     END_T = parse_date(END_T)
 
-    N = 50
+    N = 100
     evt_seqs = []
 
     driver = conn.get_driver()
