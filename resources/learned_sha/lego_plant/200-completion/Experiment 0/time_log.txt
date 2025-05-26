@@ -1,0 +1,3 @@
+Experiment 0 started at: 2025-04-17 18:45:27
+Experiment 0 ended at: 2025-04-17 19:11:39
+Total execution time: 1572.62 seconds

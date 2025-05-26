@@ -1,4 +1,0 @@
-AUTO_TWIN_SKG_10-1_source.txt	1.00
-AUTO_TWIN_SKG_50-1_source.txt	1.00
-AUTO_TWIN_SKG_200-1_source.txt	1.00
-AUTO_TWIN_SKG_1000-1_source.txt	1.00

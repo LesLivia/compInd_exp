@@ -1,0 +1,3 @@
+Experiment 9 started at: 2025-04-17 16:37:37
+Experiment 9 ended at: 2025-04-17 16:37:52
+Total execution time: 15.84 seconds

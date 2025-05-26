@@ -1,0 +1,3 @@
+Experiment 6 started at: 2025-04-17 22:04:07
+Experiment 6 ended at: 2025-04-17 22:07:31
+Total execution time: 204.46 seconds
