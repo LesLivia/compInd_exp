@@ -1,6 +1,7 @@
 import configparser
 import os
 from datetime import datetime
+from random import randint
 
 config = configparser.ConfigParser()
 config.sections()
@@ -21,7 +22,7 @@ def get_ts():
 
 
 def run_exp(name, model_path, query_path):
-    res_name = name.replace('_source.txt', '') + '_' + get_ts()
+    res_name = name.replace('_source.txt', '') + '_' + get_ts() + '_' + str(randint(0, 1000))
     os.system('{} {} {} {} {}'.format(UPP_SCRIPT_PATH, UPPAAL_PATH, model_path, query_path,
                                       UPP_OUT_PATH.format(res_name)))
     return UPP_OUT_PATH.format(res_name)

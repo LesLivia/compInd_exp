@@ -15,17 +15,22 @@ def all_pairs(n):
     return n * (n - 1) / 2
 
 
+MAPPINGS_PATH = './resources/config/{}_mappings.json'
+
 CS = 'lego_plant'
 NAME = 'AUTO_TWIN_SKG_{}-{}_source.txt'
 LEARNED_SHA_PATH = 'resources/learned_sha/{}/AUTO_TWIN_SKG_{}-{}_source.txt'
 N_comp = [10, 50, 200, 1000]
 repl = list(range(10))
 
+# VALIDATION BASED ON DOMAIN KNOWLEDGE
 domain_knowledge = {'lego_plant': (5 * 6, 5 * 10)}
 
-MAPPINGS_PATH = './resources/config/{}_mappings.json'
-
 print('{}: {} locs, {} edges'.format(CS, domain_knowledge[CS][0], domain_knowledge[CS][1]))
+
+# VALIDATION BASED ON EXTRA TRACES
+# (traces not seen during learning)
+validation_traces = get_traces()
 
 for n_c, r in itertools.product(N_comp, repl):
     LINKS_PATH = MAPPINGS_PATH.format(CS)
@@ -46,8 +51,6 @@ for n_c, r in itertools.product(N_comp, repl):
 
     # VALIDATION BASED ON EXTRA TRACES
     # (traces not seen during learning)
-    validation_traces = get_traces()
-
     sha = parse_sha(AUTOMATON_PATH, AUTOMATON_NAME)
     # Generated Uppaal model with:
     # DiscoveredSystem = learned automaton

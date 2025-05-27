@@ -1,9 +1,12 @@
+import sys
+
 import skg_main.skg_mgrs.connector_mgr as conn
 from sha_learning.case_studies.auto_twin.sul_definition import getSUL
+from sha_learning.domain.lshafeatures import Trace, Event
 from skg_main.skg_mgrs.skg_reader import Skg_Reader
 from skg_main.skg_model.schema import Timestamp as skg_Timestamp
 from skg_main.skg_model.semantics import EntityForest
-from sha_learning.domain.lshafeatures import Trace, Event
+
 
 def parse_date(s: str):
     fields = s.split('-')
@@ -20,7 +23,9 @@ def get_traces():
     START_T = parse_date(START_T)
     END_T = parse_date(END_T)
 
-    N = 100
+    # N = number of entities whose completions that occurred between START_T and END_T
+    # will constitute the validation traces
+    N = int(sys.argv[1])
     evt_seqs = []
 
     driver = conn.get_driver()
